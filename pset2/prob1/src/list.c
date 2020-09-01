@@ -1,4 +1,5 @@
 #include "list.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -59,16 +60,13 @@ void list_append( List *list, int value ) {
    * list_append( list, 9 ); results in
    * { 5 -> 10 -> 9 }
    */
-  List_node *new_node = create_node(value);
-  List_node *tmp_node;
-
-  if ( list->front == NULL )
-    list->front = new_node;
+  if ( list->front == NULL ) {
+    list->front = create_node( value );
+  }
   else {
-    tmp_node = list->front;
-    while( tmp_node->next != NULL )
-      tmp_node = tmp_node->next;
-    tmp_node->next = new_node;
+    List_node *p = list->front;
+    for( size_t i = 1; i < list->length; ++i, p = p->next );
+    p->next = create_node( value );
   }
   ++list->length;
 }
@@ -86,28 +84,36 @@ void list_insert_before( List *list, int insert, int before ) {
    * NOTE: if the value 'before' does not exist in 'list', this
    * function should not modify the list or append anywhere.
    */
-  List_node *new_node = create_node( insert );
-  if ( list->front->value == before ) {
+  if ( list-> front != NULL && list->front->value == before ) {
+    List_node *new_node = create_node( insert );
     new_node->next = list->front;
     list->front = new_node;
     ++list->length;
-    return;
   }
-
-  List_node *tmp_node = list->front;
-  List_node *prev_node;
-  for ( size_t i = 0; i < list->length-1; ++i ) {
-    prev_node = tmp_node;
-    tmp_node = tmp_node->next;
-    if ( tmp_node->value == before ) {
-      new_node->next = tmp_node;
-      prev_node->next = new_node;
-      ++list->length;
-      return;
+  else {
+    List_node *prev = list->front;
+    List_node *next = list->front->next;
+    while( next != NULL ) {
+      if ( next->value == before ) {
+        prev->next = create_node( insert );
+        prev->next->next = next;
+        ++list->length;
+        return;
+      }
+      prev = next;
+      next = next->next;
     }
   }
+}
 
-  free( new_node );
+void list_delete_from_front( List *list, int value ) {
+  List_node *front = list->front;
+  while( front != NULL && front->value == value ) {
+    list->front = front->next;
+    --list->length;
+    free( front );
+    front = list->front;
+  }
 }
 
 // Implement this
@@ -119,25 +125,25 @@ void list_delete( List *list, int value ) {
    * If there are no values to delete, the function should
    * do nothing.
    */
-  List_node *node;
-  List_node *tmp_next;
-
-  if ( list->front == NULL )
+  list_delete_from_front( list, value );
+  if ( list->front == NULL ) {
     return;
-
-  // check begining of list
-  while( list->front->value == value ) {
-    destroy_node( list, list->front );
   }
 
-  node = list->front;
-  // prev_node = list->front;
-  while ( node != NULL ) {
-    tmp_next = node->next;
-    if( node->value == value ) {
-      destroy_node( list, node );
+  List_node *prev = list->front;
+  List_node *p = list->front->next;
+
+  while( p != NULL ) {
+    if( p->value == value ) {
+      prev->next = p->next;
+      free( p );
+      --list->length;
+      p = prev->next;
     }
-    node = tmp_next;
+    else {
+      prev = p;
+      p = p->next;
+    }
   }
 }
 
@@ -153,11 +159,8 @@ void list_apply( List *list, int (*function_ptr)(int) ) {
    * call to list_apply( list, sq );
    * results in { 1 -> 4 -> 9 }
    */
-  List_node *tmp_node = list->front;
-
-  for ( size_t i = 0; i < list->length; ++i ) {
-    tmp_node->value = (*function_ptr)( tmp_node->value );
-    tmp_node = tmp_node->next;
+  for ( List_node *p = list->front; p != NULL; p = p->next ) {
+    p->value = (*function_ptr)( p->value );
   }
 }
 
@@ -175,13 +178,13 @@ int list_reduce( List *list, int (*function_ptr)( int, int ) ) {
    * you should return 0; if the list has only one
    * element, return the value of that element.
    */
-  List_node *node = list->front;
-  int result = 0;
-  for ( size_t i = 0; i < list->length; ++i ) {
-    result = (*function_ptr)( result, node->value );
-    node = node->next;
+  if ( list->front == NULL ) {
+    return 0;
   }
-
+  int result = list->front-value;
+  for ( List_node *node = list->front->next; node != NULL; node = node->next ) {
+    result = (*function_ptr)( result, node->value );
+  }
   return result;
 }
 
