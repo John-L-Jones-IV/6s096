@@ -1,5 +1,6 @@
 *.in
-*.out
-*.orig
-*.pdf
-*.zip
+**.out
+**.orig
+**.pdf
+**.zip
+**.o
