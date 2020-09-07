@@ -14,17 +14,17 @@ typedef struct Matrix_s {
 
 Matrix* allocateMatrix( size_t R, size_t C );
 /* create a Matrix struct in the heap
- * with with R row C cols and an index int array with RxC length 
+ * with with R row C cols and an index int array with RxC length
  */
 
 
 void destoryMatrix( Matrix *matrix );
-/* free the Matrix struct from the heap 
+/* free the Matrix struct from the heap
  */
 
 
 Matrix* readMatrix( FILE *input );
-/* read the file formated as 
+/* read the file formated as
  * R C
  * 11 12 ..
  * 21 33 ..
@@ -52,5 +52,5 @@ void writeMatrix( FILE *output, Matrix *A );
  */
 
 void printMatrix( Matrix *A );
-/* print Matrix A to the console 
+/* print Matrix A to the console
  */

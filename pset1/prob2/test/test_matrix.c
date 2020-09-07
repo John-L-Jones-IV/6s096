@@ -1,4 +1,4 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
 
@@ -51,13 +51,13 @@ void testCompareOutput( size_t file_number ) {
 
 	Matrix C = matMul( &A, &B );
 	write_mat( output_file_ptr, &C );
-	
+
 	fclose( input_file_ptr );
 	fclose( output_file_ptr );
 
 #if 0
-	/* FIXME: Does not account for file encoding type or windows CR-NL endings 
-	 * vs Unix-like CR endings 
+	/* FIXME: Does not account for file encoding type or windows CR-NL endings
+	 * vs Unix-like CR endings
 	 * */
 	/* compare outputfile size to answer file size */
 	int output_file_size = getFileSize( output_file_name );
@@ -96,7 +96,7 @@ void testCompareOutput( size_t file_number ) {
 		return;
 	}
 
- 	int c1, c2;
+	int c1, c2;
 	for ( size_t i = 1; i <= R_out; ++i ) {
 		for ( size_t j = 1; j <= C_out; ++j ) {
 			fscanf( answer_file_ptr, "%d", &c1 );
@@ -123,7 +123,7 @@ void testCompareOutput10() { testCompareOutput( 10 ); }
 
 #ifdef TEST
 int main( void ) {
- 	UNITY_BEGIN();
+	UNITY_BEGIN();
 	RUN_TEST( testCompareOutput1 );
 	RUN_TEST( testCompareOutput2 );
 	RUN_TEST( testCompareOutput3 );
@@ -134,6 +134,6 @@ int main( void ) {
 	RUN_TEST( testCompareOutput8 );
 	RUN_TEST( testCompareOutput9 );
 	RUN_TEST( testCompareOutput10 );
- 	return UNITY_END();
+	return UNITY_END();
 }
 #endif // TEST

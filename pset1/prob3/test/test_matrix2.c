@@ -6,7 +6,7 @@
  */
 
 
-#include <stdio.h> 
+#include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
 
@@ -46,7 +46,7 @@ void testCompareOutput( size_t file_number ) {
 	sprintf( output_file_name, OUTPUT_FILE_FORMAT, file_number );
 	sprintf( answer_file_name, ANSWER_FILE_FORMAT, file_number );
 
-	/* read input files */ 
+	/* read input files */
 	input_file_ptr = fopen( input_file_name, "r" );
 	Matrix *A = readMatrix( input_file_ptr );
 	Matrix *B = readMatrix( input_file_ptr );
@@ -80,7 +80,7 @@ void testCompareOutput( size_t file_number ) {
 		return;
 	}
 
- 	int c1, c2;
+	int c1, c2;
 	for ( size_t i = 1; i <= R_out; ++i ) {
 		for ( size_t j = 1; j <= C_out; ++j ) {
 			fscanf( answer_file_ptr, "%d", &c1 );
@@ -110,7 +110,7 @@ void testCompareOutput11() { testCompareOutput( 11 ); }
 
 #ifdef TEST
 int main( void ) {
- 	UNITY_BEGIN();
+	UNITY_BEGIN();
 	RUN_TEST( testCompareOutput1 );
 	RUN_TEST( testCompareOutput2 );
 	RUN_TEST( testCompareOutput3 );
@@ -122,6 +122,6 @@ int main( void ) {
 	RUN_TEST( testCompareOutput9 );
 	RUN_TEST( testCompareOutput10 );
 	RUN_TEST( testCompareOutput11 );
- 	return UNITY_END();
+	return UNITY_END();
 }
 #endif // TEST

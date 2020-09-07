@@ -10,12 +10,12 @@
 
 
 size_t getStr( char **str, FILE *input );
-/*	str  	- pointer to char array starting with desired text to proccess. 
+/*	str  	- pointer to char array starting with desired text to proccess.
  *			Must contain NULL characters after desired text
  *			(is guarenteed if freeing with calloc).
  *	input	- file buffer pointer to input file
  *
- *	return the number of leading non NULL characters in str 
+ *	return the number of leading non NULL characters in str
  */
 
 

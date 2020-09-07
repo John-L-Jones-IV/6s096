@@ -1,4 +1,4 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
 
@@ -67,7 +67,7 @@ void testCompareOutput( size_t file_number) {
 	output_file_ptr = fopen( output_file_name, "r" );
 	fscanf( answer_file_ptr, "%d", &N1 );
 	fscanf( output_file_ptr, "%d", &N2 );
-	TEST_ASSERT_MESSAGE( N1 == N2, 
+	TEST_ASSERT_MESSAGE( N1 == N2,
 			"Files to not lead with same number of lines as meta data" );
 	if ( N1 != N2 ) {
 		return;
@@ -107,7 +107,7 @@ void testCompareOutput7() {
 
 #ifdef TEST
 int main( void ) {
- 	UNITY_BEGIN();
+	UNITY_BEGIN();
 	RUN_TEST( testCompareOutput1 );
 	RUN_TEST( testCompareOutput2 );
 	RUN_TEST( testCompareOutput3 );
@@ -115,6 +115,6 @@ int main( void ) {
 	RUN_TEST( testCompareOutput5 );
 	RUN_TEST( testCompareOutput6 );
 	RUN_TEST( testCompareOutput7 );
- 	return UNITY_END();
+	return UNITY_END();
 }
 #endif // TEST

@@ -48,9 +48,9 @@ void encrypt( char* string, size_t length ) {
 int main() {
 	char *str = calloc( BLOCK_SIZE, sizeof(char) );
 
- 	FILE *input = fopen( FILE_INPUT, "r" );
+	FILE *input = fopen( FILE_INPUT, "r" );
 	size_t l = getStr( &str, input );
- 	fclose( input );
+	fclose( input );
 
 	encrypt( str, l );
 

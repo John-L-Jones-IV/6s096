@@ -49,7 +49,7 @@ void testCompareOutput( size_t file_number ) {
 	sprintf( output_file_name, OUTPUT_FILE_FORMAT, file_number );
 	sprintf( answer_file_name, ANSWER_FILE_FORMAT, file_number );
 
-	/* read input files */ 
+	/* read input files */
 	char *str = calloc( BLOCK_SIZE, sizeof(char) );
 	input_file_ptr = fopen( input_file_name, "r" );
 	size_t l = getStr( &str, input_file_ptr );
@@ -68,7 +68,7 @@ void testCompareOutput( size_t file_number ) {
 	answer_file_ptr = fopen( answer_file_name, "r" );
 	output_file_ptr = fopen( output_file_name, "r" );
 
- 	char c1, c2;
+	char c1, c2;
 	while( (c1 = fgetc( answer_file_ptr )) != EOF ) {
 		c2 = fgetc( output_file_ptr );
 		if ( c1 != c2 ) {
@@ -98,7 +98,7 @@ void testCompareOutput10() { testCompareOutput( 10 ); }
 
 #ifdef TEST
 int main( void ) {
- 	UNITY_BEGIN();
+	UNITY_BEGIN();
 	RUN_TEST( test_flipStr_singleLetter );
 	RUN_TEST( test_flipStr_exampleString );
 	RUN_TEST( testCompareOutput1 );
@@ -111,6 +111,6 @@ int main( void ) {
 	RUN_TEST( testCompareOutput8 );
 	RUN_TEST( testCompareOutput9 );
 	RUN_TEST( testCompareOutput10 );
- 	return UNITY_END();
+	return UNITY_END();
 }
 #endif // TEST
