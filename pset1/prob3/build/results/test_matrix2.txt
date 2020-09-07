@@ -1,0 +1,15 @@
+test/test_matrix2.c:114:testCompareOutput1:PASS
+test/test_matrix2.c:115:testCompareOutput2:PASS
+test/test_matrix2.c:116:testCompareOutput3:PASS
+test/test_matrix2.c:117:testCompareOutput4:PASS
+test/test_matrix2.c:118:testCompareOutput5:PASS
+test/test_matrix2.c:119:testCompareOutput6:PASS
+test/test_matrix2.c:120:testCompareOutput7:PASS
+test/test_matrix2.c:121:testCompareOutput8:PASS
+test/test_matrix2.c:122:testCompareOutput9:PASS
+test/test_matrix2.c:123:testCompareOutput10:PASS
+test/test_matrix2.c:124:testCompareOutput11:PASS
+
+-----------------------
+11 Tests 0 Failures 0 Ignored 
+OK
