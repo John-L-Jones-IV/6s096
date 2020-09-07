@@ -14,7 +14,7 @@ else
 endif
 
 
-PATHU = unity/src/
+PATHU = ../../../unity/
 PATHS = src/
 PATHT = test/
 PATHB = build/

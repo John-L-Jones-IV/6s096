@@ -1,13 +1,13 @@
-test/test_matrix.c:128:testCompareOutput1:PASS
-test/test_matrix.c:129:testCompareOutput2:PASS
-test/test_matrix.c:130:testCompareOutput3:PASS
-test/test_matrix.c:131:testCompareOutput4:PASS
-test/test_matrix.c:132:testCompareOutput5:PASS
-test/test_matrix.c:133:testCompareOutput6:PASS
-test/test_matrix.c:134:testCompareOutput7:PASS
-test/test_matrix.c:135:testCompareOutput8:PASS
-test/test_matrix.c:136:testCompareOutput9:PASS
-test/test_matrix.c:137:testCompareOutput10:PASS
+test/test_matrix.c:127:testCompareOutput1:PASS
+test/test_matrix.c:128:testCompareOutput2:PASS
+test/test_matrix.c:129:testCompareOutput3:PASS
+test/test_matrix.c:130:testCompareOutput4:PASS
+test/test_matrix.c:131:testCompareOutput5:PASS
+test/test_matrix.c:132:testCompareOutput6:PASS
+test/test_matrix.c:133:testCompareOutput7:PASS
+test/test_matrix.c:134:testCompareOutput8:PASS
+test/test_matrix.c:135:testCompareOutput9:PASS
+test/test_matrix.c:136:testCompareOutput10:PASS
 
 -----------------------
 10 Tests 0 Failures 0 Ignored 
