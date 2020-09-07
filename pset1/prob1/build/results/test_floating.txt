@@ -1,0 +1,11 @@
+test/test_floating.c:111:testCompareOutput1:PASS
+test/test_floating.c:112:testCompareOutput2:PASS
+test/test_floating.c:113:testCompareOutput3:PASS
+test/test_floating.c:114:testCompareOutput4:PASS
+test/test_floating.c:115:testCompareOutput5:PASS
+test/test_floating.c:116:testCompareOutput6:PASS
+test/test_floating.c:117:testCompareOutput7:PASS
+
+-----------------------
+7 Tests 0 Failures 0 Ignored 
+OK

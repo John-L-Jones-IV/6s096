@@ -1,0 +1,16 @@
+test/test_loop.c:100:test_flipStr_singleLetter:PASS
+test/test_loop.c:101:test_flipStr_exampleString:PASS
+test/test_loop.c:102:testCompareOutput1:PASS
+test/test_loop.c:103:testCompareOutput2:PASS
+test/test_loop.c:104:testCompareOutput3:PASS
+test/test_loop.c:105:testCompareOutput4:PASS
+test/test_loop.c:106:testCompareOutput5:PASS
+test/test_loop.c:107:testCompareOutput6:PASS
+test/test_loop.c:108:testCompareOutput7:PASS
+test/test_loop.c:109:testCompareOutput8:PASS
+test/test_loop.c:110:testCompareOutput9:PASS
+test/test_loop.c:111:testCompareOutput10:PASS
+
+-----------------------
+12 Tests 0 Failures 0 Ignored 
+OK

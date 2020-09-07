@@ -1,5 +1,9 @@
 *.in
-*.out
-*.orig
-*.pdf
-*.zip
+**.out
+**.orig
+**.pdf
+**.zip
+**.o
+practice/
+lects/
+Diagnostic

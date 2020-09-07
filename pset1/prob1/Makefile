@@ -14,7 +14,7 @@ else
 endif
 
 
-PATHU = ../../unity/
+PATHU = ../../../unity/
 PATHS = src/
 PATHT = test/
 PATHB = build/
@@ -39,7 +39,7 @@ FAIL = `grep -s FAIL $(PATHR)*.txt`
 IGNORE = `grep -s IGNORE $(PATHR)*.txt`
 
 .PHONY: print
-print: clean $(BUILD_PATHS) $(RESULTS)
+print: $(BUILD_PATHS) $(RESULTS)
 	@echo "-----------------------\nIGNORES:\n-----------------------"
 	@echo "$(IGNORE)"
 	@echo "-----------------------\nFAILURES:\n-----------------------"
