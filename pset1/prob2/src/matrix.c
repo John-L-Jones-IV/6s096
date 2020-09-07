@@ -42,7 +42,7 @@ void build_mat( FILE *input, Matrix *A ) {
 
 
 void write_mat( FILE *output, Matrix *A ) {
-	fprintf( output, "%ld %ld\r\n", A->R, A->C );
+	fprintf( output, "%ld %ld\n", A->R, A->C );
 	for ( size_t i = 0; i < A->R; ++i ) {
 		for ( size_t j = 0; j < A->C; ++j ) {
 			if ( j == A->C -1 ) {
@@ -53,7 +53,7 @@ void write_mat( FILE *output, Matrix *A ) {
 			}
 		}
 		if ( i < A->R-1 ) {
-			fprintf( output, "\r\n" );
+			fprintf( output, "\n" );
 		}
 	}
 }

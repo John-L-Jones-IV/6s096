@@ -40,7 +40,6 @@ void print_float( FILE *output, float f ) {
 
 #ifndef TEST // if not testing
 int main() {
-//	printf("Testing Makefile\n");
 	FILE *input = fopen("floating.1.in",  "r");
 	FILE *output = fopen("floating.1.out", "w");
 	size_t N;
