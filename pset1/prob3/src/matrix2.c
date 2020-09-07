@@ -82,7 +82,7 @@ void writeMatrix( FILE *output, Matrix *A ) {
 void printMatrix( Matrix *A ) {
 	printf( "%ld %ld\n", A->R, A->C );
 	for ( size_t r = 0; r < A->R; ++r ) {
-		for ( size_t C = 0; c < A->C; ++c ) {
+		for ( size_t c = 0; c < A->C; ++c ) {
 			printf( "%d ", A->index[c + r*A->C] );
 		}
 		printf( "\n" );
