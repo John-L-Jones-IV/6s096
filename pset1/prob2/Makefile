@@ -22,7 +22,7 @@ PATHD = build/depends/
 PATHO = build/objs/
 PATHR = build/results/
 
-BUILD_PATHS = $(PATHB) $(PATHD) $(PATHO) $(PATHR)
+BUILD_PATHS = $(PATHB) $(PATHD) $(PATHO) $(PATHR) $(PATHT) $(PATHT)data $(PATHT)output
 
 SRC = $(wildcard $(PATHS)*.c)
 SRCT = $(wildcard $(PATHT)*.c)
@@ -77,6 +77,15 @@ $(PATHO):
 
 $(PATHR):
 	$(MKDIR) $(PATHR)
+
+$(PATHT):
+	$(MKDIR) $(PATHT)
+	
+$(PATHT)data:
+	$(MKDIR) $(PATHT)data
+	
+$(PATHT)output:
+	$(MKDIR) $(PATHT)output
 
 
 .PHONY: clean
