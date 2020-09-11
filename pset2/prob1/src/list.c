@@ -12,6 +12,7 @@ List empty_list( void ) {
   return (List) { .length = 0, .front = NULL };
 }
 
+
 // Allocate memory for a single List_node
 List_node* create_node( int value ) {
   List_node *new_node = malloc( sizeof( List_node ) );
@@ -27,7 +28,7 @@ void destroy_node( List *list, List_node *node ) {
   // node is beginning of list
   if ( list->front == node ) {
     tmp_node = list->front->next;
-    free(list->front);
+    free( list->front );
     list->front = tmp_node;
     if ( list->length == 0 ) {
       printf( "Error: List length less than 0. List has been corrupted.\n" );
@@ -181,7 +182,7 @@ int list_reduce( List *list, int (*function_ptr)( int, int ) ) {
   if ( list->front == NULL ) {
     return 0;
   }
-  int result = list->front-value;
+  int result = list->front->value;
   for ( List_node *node = list->front->next; node != NULL; node = node->next ) {
     result = (*function_ptr)( result, node->value );
   }
@@ -214,17 +215,20 @@ void list_print( List list ) {
 // Frees the memory in List *list
 void list_clear( List *list ) {
   List_node *front = list->front;
-  size_t length = list->length;
+  List_node *next;
 
-  while( front != NULL && length > 0 ) {
-    List_node *next = front->next;
+  while( front != NULL && list->length > 0 ) {
+    next = front->next;
     free( front );
     front = next;
-    --length;
+    --list->length;
   }
 
-  if( length != 0 ) {
+  if( list->length != 0 ) {
     printf( "Error: failed to clean up list properly.\n" );
     exit( EXIT_FAILURE );
+  }
+  else {
+    list->front = NULL;
   }
 }
